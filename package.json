@@ -1,0 +1,22 @@
+{
+  "name": "todo-odin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haycon/todo-odin.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/haycon/todo-odin/issues"
+  },
+  "homepage": "https://github.com/haycon/todo-odin#readme",
+  "devDependencies": {
+    "webpack-cli": "^4.5.0"
+  }
+}
