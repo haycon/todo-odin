@@ -1,14 +1,16 @@
-function test(description, checked) {
+import { projects } from './frontPage';
+function displayTodo(description, checked) {
   rightBar.children[0].remove();
 
   const div = document.createElement('div');
   const h1 = document.createElement('h1');
   const descriptionP = document.createElement('p');
   const checkbox = document.createElement('input');
-  //const add = document.createElement('input');
 
   div.id = 'showTodo';
-  descriptionP.innerHTML = description;
+  console.log(projects[0].Todo.description);
+  h1.innerHTML = projects[0].projectName;
+  descriptionP.innerHTML = projects[0].Todo.description;
   checkbox.type = 'checkbox';
   descriptionP.className = 'descriptionStyle';
   checkbox.className = 'checkboxStyle';
@@ -19,4 +21,4 @@ function test(description, checked) {
   rightBar.appendChild(div);
 }
 
-export { test };
+export { displayTodo };

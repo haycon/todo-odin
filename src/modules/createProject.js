@@ -32,6 +32,7 @@ function createProject() {
 
   div.id = 'createTodo';
   h2.innerHTML = 'Create a new project';
+  inputProjectName.id = 'inputProjectName';
   labelProjectName.innerHTML = 'Project name: ';
   labelDesc.innerHTML = 'Description: ';
   labelCheckbox.innerHTML = 'Done (Yes/No): ';
@@ -57,14 +58,15 @@ function createProject() {
 }
 
 function addTodo() {
-  console.log('test');
+  //It is a form, and therefore the page get's refreshed
   event.preventDefault();
-  return false;
-  /*   let projectName = document.getElementById('title').value;
+  let projectName = document.getElementById('inputProjectName').value;
+  let newTodo = new Todo(projectName, description, checked);
+
+  /*
   let author1 = document.getElementById('author').value;
   let pages1 = document.getElementById('pages').value;
   let read1 = document.getElementById('read').checked;
-  let newBook = new Book(title1, author1, pages1, read1);
   myLibrary.push(newBook);
 
   const d = document.createElement('div');

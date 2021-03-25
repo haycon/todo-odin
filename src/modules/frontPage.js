@@ -1,23 +1,32 @@
 import { createProject } from './createProject';
-import { test } from './showTodo';
+import { displayTodo } from './showTodo';
+
+const Project = (projectName, Todo) => {
+  return { projectName, Todo };
+};
+
 const Todo = (description, checked) => {
   return { description, checked };
 };
 
-let Chores = Todo('Take out garbage', false);
-let Chores1 = Todo('Clean', true);
+let Chores = Todo('Finish todo website', false);
+let Chores1 = Todo('Finish TOP', true);
+
+let Programming = Project('Programming', Chores);
+
+let projects = [Programming];
 let todos = [Chores, Chores1];
 
 function displayProjects() {
   const div = document.createElement('div');
   projectsNames.appendChild(div);
 
-  todos.forEach((todo) => {
+  projects.forEach((project) => {
     const h4 = document.createElement('h4');
 
-    h4.innerHTML = todo.description;
+    h4.innerHTML = project.projectName;
     h4.onclick = function () {
-      test(todo.description, todo.checked);
+      displayTodo(todos.description, todos.checked);
     };
 
     div.appendChild(h4);
@@ -57,4 +66,4 @@ function createTodo() {
   rightBar.appendChild(div);
 }
 
-export { createTodo, displayProjects };
+export { createTodo, displayProjects, projects };
