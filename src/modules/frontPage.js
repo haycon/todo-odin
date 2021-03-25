@@ -18,8 +18,9 @@ let projects = [Programming];
 let todos = [Chores, Chores1];
 
 function displayProjects() {
+  leftBar.children[0].remove();
   const div = document.createElement('div');
-  projectsNames.appendChild(div);
+  leftBar.appendChild(div);
 
   projects.forEach((project) => {
     const h4 = document.createElement('h4');
@@ -66,4 +67,4 @@ function createTodo() {
   rightBar.appendChild(div);
 }
 
-export { createTodo, displayProjects, projects };
+export { createTodo, displayProjects, projects, todos };

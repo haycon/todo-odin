@@ -1,20 +1,7 @@
+import { displayProjects, projects, todos } from './frontPage';
+
 function createProject() {
   rightBar.children[0].remove();
-  /*
-  <form action="" method="post" id="form1">
-          <label for="title">Title</label>
-          <input id="title" type="text" name="title" />
-
-          <label for="author">Author</label>
-          <input id="author" type="text" name="author" />
-
-          <label for="pages">Pages</label>
-          <input id="pages" type="number" name="pages" />
-
-          <label class="read" for="read" id="readtext">Read:</label>
-          <input class="read" id="read" type="checkbox" name="read" />
-        </form>
-  */
 
   const div = document.createElement('div');
   const h2 = document.createElement('h2');
@@ -33,6 +20,8 @@ function createProject() {
   div.id = 'createTodo';
   h2.innerHTML = 'Create a new project';
   inputProjectName.id = 'inputProjectName';
+  inputDesc.id = 'inputDescriptionName';
+  inputCheckbox.id = 'inputCheckbox';
   labelProjectName.innerHTML = 'Project name: ';
   labelDesc.innerHTML = 'Description: ';
   labelCheckbox.innerHTML = 'Done (Yes/No): ';
@@ -58,39 +47,68 @@ function createProject() {
 }
 
 function addTodo() {
+  const Project = (projectName, Todo) => {
+    return { projectName, Todo };
+  };
+
+  const Todo = (description, checked) => {
+    return { description, checked };
+  };
+
   //It is a form, and therefore the page get's refreshed
   event.preventDefault();
   let projectName = document.getElementById('inputProjectName').value;
-  let newTodo = new Todo(projectName, description, checked);
+  let description = document.getElementById('inputDescriptionName').value;
+  let checked = document.getElementById('inputCheckbox').checked;
+  let newTodo = Todo(description, checked);
+  let newProject = Project(projectName, newTodo);
+  projects.push(newProject);
+
+  displayProjects();
+  rightBar.children[0].remove();
+
+  const div = document.createElement('div');
+  const div2 = document.createElement('div');
+  const h2 = document.createElement('h2');
+  const p = document.createElement('p');
+  const p2 = document.createElement('p');
+  const labelProjectName = document.createElement('label');
+  const labelDesc = document.createElement('label');
+  const labelCheckbox = document.createElement('label');
+  const inputDesc = document.createElement('input');
+  const inputCheckbox = document.createElement('input');
+  const checkbox = document.createElement('input');
+  checkbox.type = 'checkbox';
+  const br = document.createElement('br');
+  const br2 = document.createElement('br');
+  const button = document.createElement('button');
+
+  div.id = 'newTodo';
+  p.classList.add('descriptionStyle');
+  h2.innerHTML = projectName;
+  p.innerHTML = description;
+  p2.innerHTML = 'Add new todos:';
+  labelDesc.innerHTML = 'Description: ';
+  labelCheckbox.innerHTML = 'Done (Yes/No): ';
+  inputCheckbox.type = 'checkbox';
+  button.innerHTML = '+';
+  //button.addEventListener('click', addTodo);
+
+  rightBar.appendChild(div);
+  div.appendChild(div2);
+  div2.appendChild(h2);
+  div2.appendChild(checkbox);
+  div2.appendChild(p);
+  div.appendChild(p2);
+  div.appendChild(labelDesc);
+  div.appendChild(inputDesc);
+  div.appendChild(br);
+  div.appendChild(labelCheckbox);
+  div.appendChild(inputCheckbox);
+  div.appendChild(br2);
+  div.appendChild(button);
 
   /*
-  let author1 = document.getElementById('author').value;
-  let pages1 = document.getElementById('pages').value;
-  let read1 = document.getElementById('read').checked;
-  myLibrary.push(newBook);
-
-  const d = document.createElement('div');
-  const a = document.createElement('div');
-  const title = document.createElement('h3');
-  const author = document.createElement('p');
-  const pages = document.createElement('p');
-  const read = document.createElement('p');
-  const btn = document.createElement('button');
-  const checkbox = document.createElement('input');
-  let s = document.querySelector('.main');
-  d.classList.add('books');
-  checkbox.type = 'checkbox';
-  btn.classList.add('deleteBtn');
-
-  s.appendChild(d);
-  d.appendChild(title);
-  d.appendChild(author);
-  d.appendChild(pages);
-  d.appendChild(a);
-  a.appendChild(read);
-  a.appendChild(checkbox);
-  d.appendChild(btn);
-
   a.classList.add('readStatus');
   checkbox.classList.add('checked');
   d.setAttribute('data-id', myLibrary.length);
