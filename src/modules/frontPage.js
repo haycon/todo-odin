@@ -1,29 +1,35 @@
 import { createProject } from './createProject';
-
-const Todo = (description, checkbox) => {
-  return { description, checkbox };
+import { test } from './showTodo';
+const Todo = (description, checked) => {
+  return { description, checked };
 };
 
 let Chores = Todo('Take out garbage', false);
-let todos = [Chores];
+let Chores1 = Todo('Clean', true);
+let todos = [Chores, Chores1];
 
 function displayProjects() {
   const div = document.createElement('div');
-
   projectsNames.appendChild(div);
 
-  todos.forEach((element) => {
+  todos.forEach((todo) => {
     const h4 = document.createElement('h4');
-    h4.innerHTML = element.description;
+
+    h4.innerHTML = todo.description;
+    h4.onclick = function () {
+      test(todo.description, todo.checked);
+    };
+
     div.appendChild(h4);
   });
 
-  /* var list = function (family) {
-    for (let project in todos) {
-      h1.innerHTML += '<li>' + project + '</li>';
-    }
-  }; */
+  const h3 = document.createElement('h3');
+  h3.innerHTML = 'New Project';
+  h3.onclick = function () {
+    createProject();
+  };
 
+  div.appendChild(h3);
   return div;
 }
 

@@ -3,16 +3,22 @@ function createProject() {
 
   const div = document.createElement('div');
   const h2 = document.createElement('h2');
+  const labelProjectName = document.createElement('label');
   const labelDesc = document.createElement('label');
   const labelCheckbox = document.createElement('label');
   const form = document.createElement('form');
+  const inputProjectName = document.createElement('input');
   const inputDesc = document.createElement('input');
   const inputCheckbox = document.createElement('input');
   const br = document.createElement('br');
+  const br1 = document.createElement('br');
+  const br2 = document.createElement('br');
   const button = document.createElement('button');
 
+  div.id = 'createTodo';
   h2.innerHTML = 'Create a new project';
-  labelDesc.innerHTML = 'Name: ';
+  inputProjectName.innerHTML = 'Project name: ';
+  inputDesc.innerHTML = 'Description: ';
   labelCheckbox.innerHTML = 'Done (Yes/No): ';
   inputCheckbox.type = 'checkbox';
   button.innerHTML = 'Add';
@@ -20,18 +26,22 @@ function createProject() {
   rightBar.appendChild(div);
   div.appendChild(h2);
   div.appendChild(form);
+  form.appendChild(labelProjectName);
+  form.appendChild(inputProjectName);
+  form.appendChild(br);
   form.appendChild(labelDesc);
   form.appendChild(inputDesc);
-  form.appendChild(br);
+  form.appendChild(br2);
   form.appendChild(labelCheckbox);
   form.appendChild(inputCheckbox);
-  div.appendChild(button);
+  form.appendChild(br1);
+  form.appendChild(button);
 
   return div;
 }
 
-let addBookToLibrary = () => {
-  let title1 = document.getElementById('title').value;
+let addTodo = () => {
+  let projectName = document.getElementById('title').value;
   let author1 = document.getElementById('author').value;
   let pages1 = document.getElementById('pages').value;
   let read1 = document.getElementById('read').checked;
