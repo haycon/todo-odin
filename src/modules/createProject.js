@@ -1,5 +1,20 @@
 function createProject() {
-  frontPage.remove();
+  rightBar.children[0].remove();
+  /*
+  <form action="" method="post" id="form1">
+          <label for="title">Title</label>
+          <input id="title" type="text" name="title" />
+
+          <label for="author">Author</label>
+          <input id="author" type="text" name="author" />
+
+          <label for="pages">Pages</label>
+          <input id="pages" type="number" name="pages" />
+
+          <label class="read" for="read" id="readtext">Read:</label>
+          <input class="read" id="read" type="checkbox" name="read" />
+        </form>
+  */
 
   const div = document.createElement('div');
   const h2 = document.createElement('h2');
@@ -17,11 +32,12 @@ function createProject() {
 
   div.id = 'createTodo';
   h2.innerHTML = 'Create a new project';
-  inputProjectName.innerHTML = 'Project name: ';
-  inputDesc.innerHTML = 'Description: ';
+  labelProjectName.innerHTML = 'Project name: ';
+  labelDesc.innerHTML = 'Description: ';
   labelCheckbox.innerHTML = 'Done (Yes/No): ';
   inputCheckbox.type = 'checkbox';
-  button.innerHTML = 'Add';
+  button.innerHTML = 'Create';
+  button.addEventListener('click', addTodo);
 
   rightBar.appendChild(div);
   div.appendChild(h2);
@@ -40,8 +56,11 @@ function createProject() {
   return div;
 }
 
-let addTodo = () => {
-  let projectName = document.getElementById('title').value;
+function addTodo() {
+  console.log('test');
+  event.preventDefault();
+  return false;
+  /*   let projectName = document.getElementById('title').value;
   let author1 = document.getElementById('author').value;
   let pages1 = document.getElementById('pages').value;
   let read1 = document.getElementById('read').checked;
@@ -98,6 +117,7 @@ let addTodo = () => {
     myLibrary.splice(index, 1);
     selector.parentNode.removeChild(selector);
   });
-};
+ */
+}
 
 export { createProject };
