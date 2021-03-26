@@ -47,3 +47,11 @@ h4 {
 #newTodo {
   margin: 20px;
 }
+
+.completed {
+  text-decoration: line-through;
+}
+
+.unfinished {
+  text-decoration: none;
+}
