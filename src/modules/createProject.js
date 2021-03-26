@@ -101,8 +101,10 @@ function addTodos() {
 
   checkbox.addEventListener('click', function (e) {
     if (e.srcElement.checked == true) {
+      p.classList.remove('unfinished');
       p.classList.add('completed');
     } else {
+      p.classList.remove('completed');
       p.classList.add('unfinished');
     }
   });
