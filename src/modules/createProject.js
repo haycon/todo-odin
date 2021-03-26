@@ -1,4 +1,4 @@
-import { displayProjects, projects, todos } from './frontPage';
+import { Todo, displayProjects, projects, todos } from './frontPage';
 
 function createProject() {
   rightBar.children[0].remove();
@@ -84,15 +84,18 @@ function addTodo() {
   const button = document.createElement('button');
 
   div.id = 'newTodo';
+  div2.id = 'displayTodos';
   p.classList.add('descriptionStyle');
   h2.innerHTML = projectName;
   p.innerHTML = description;
   p2.innerHTML = 'Add new todos:';
+  inputDesc.id = 'inputDesc';
   labelDesc.innerHTML = 'Description: ';
   labelCheckbox.innerHTML = 'Done (Yes/No): ';
   inputCheckbox.type = 'checkbox';
+  inputCheckbox.id = 'inputCheckbox';
   button.innerHTML = '+';
-  //button.addEventListener('click', addTodo);
+  button.addEventListener('click', addTodos);
 
   rightBar.appendChild(div);
   div.appendChild(div2);
@@ -107,37 +110,30 @@ function addTodo() {
   div.appendChild(inputCheckbox);
   div.appendChild(br2);
   div.appendChild(button);
+}
 
+function addTodos() {
   /*
-  a.classList.add('readStatus');
-  checkbox.classList.add('checked');
-  d.setAttribute('data-id', myLibrary.length);
-  title.innerHTML = 'Title: ' + title1;
-  author.innerHTML = 'Author: ' + author1;
-  pages.innerHTML = 'Pages: ' + pages1;
-  if (read1 == true) {
-    read.innerHTML = 'Read';
-    checkbox.checked = true;
-  } else {
-    read.innerHTML = 'Not read';
-  }
+    inputProjectName.id = 'inputProjectName';
+    let inputDesc.id = 'inputDescriptionName';
+    let inputCheckbox.id = 'inputCheckbox';
+  */
 
-  checkbox.addEventListener('click', (e) => {
-    if (e.path[1].querySelector('p').innerHTML == 'Read') {
-      e.path[1].querySelector('p').innerHTML = 'Not read';
-    } else {
-      e.path[1].querySelector('p').innerHTML = 'Read';
-    }
-  });
+  let p = document.createElement('p');
+  let checkbox = document.createElement('input');
+  let br = document.createElement('br');
 
-  btn.innerHTML = 'Delete';
-  btn.addEventListener('click', (id) => {
-    let selector = id.path[1];
-    let index = id.path[1].getAttribute('data-id');
-    myLibrary.splice(index, 1);
-    selector.parentNode.removeChild(selector);
-  });
- */
+  checkbox.type = 'checkbox';
+  p.innerHTML = inputDesc.value;
+  p.classList.add('descriptionStyle');
+
+  displayTodos.appendChild(br);
+  displayTodos.appendChild(checkbox);
+  displayTodos.appendChild(p);
+
+  let newTodo = Todo(inputDesc.value, inputCheckbox.checked);
+  todos.push(newTodo);
+  console.log(todos);
 }
 
 export { createProject };

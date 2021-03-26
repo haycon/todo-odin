@@ -67,4 +67,4 @@ function createTodo() {
   rightBar.appendChild(div);
 }
 
-export { createTodo, displayProjects, projects, todos };
+export { createTodo, displayProjects, projects, todos, Todo };
