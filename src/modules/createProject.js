@@ -99,6 +99,11 @@ function addTodos() {
   p.innerHTML = inputDesc.value;
   p.classList.add('descriptionStyle');
 
+  if (inputCheckbox.checked == true) {
+    checkbox.checked = true;
+    p.classList.add('completed');
+  }
+
   checkbox.addEventListener('click', function (e) {
     if (e.srcElement.checked == true) {
       p.classList.remove('unfinished');
