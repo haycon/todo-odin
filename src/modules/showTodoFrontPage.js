@@ -1,6 +1,5 @@
-import { projects, todos, Programming } from './frontPage';
 import { deleteTodo } from './createProject';
-import { Todo } from '../index.js';
+import { Project, Todo, todos, Programming } from '../index';
 
 function displayTodoFrontPage() {
   const div = document.createElement('div');
@@ -12,16 +11,16 @@ function displayTodoFrontPage() {
 
   todos.forEach((todo) => {
     const divTodo = document.createElement('div');
-    const descriptionP = document.createElement('p');
+    const p = document.createElement('p');
     const inputCheckbox = document.createElement('input');
     const br = document.createElement('br');
     const erase = document.createElement('button');
 
     //To add PID NPM?
     divTodo.id = 'todoID';
-    descriptionP.innerHTML = todo.description;
+    p.innerHTML = todo.description;
     inputCheckbox.type = 'checkbox';
-    descriptionP.className = 'descriptionStyle';
+    p.className = 'descriptionStyle';
     inputCheckbox.id = 'inputCheckbox';
     erase.innerHTML = 'X';
     erase.id = 'eraseBtn';
@@ -42,7 +41,7 @@ function displayTodoFrontPage() {
       }
     });
     divTodo.appendChild(inputCheckbox);
-    divTodo.appendChild(descriptionP);
+    divTodo.appendChild(p);
     divTodo.appendChild(br);
     divTodo.appendChild(erase);
     div.appendChild(divTodo);

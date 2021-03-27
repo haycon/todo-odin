@@ -1,4 +1,5 @@
-import { projects, todos } from './frontPage';
+import { Project, Todo, todos, Programming } from '../index';
+
 function displayTodo(description, checked) {
   rightBar.children[0].remove();
 
