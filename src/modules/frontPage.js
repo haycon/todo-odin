@@ -1,8 +1,9 @@
 import { createProject } from './createProject';
 import { displayTodo } from './showTodo';
 
-const Project = (projectName, Todo) => {
-  return { projectName, Todo };
+//Should this be moved into createProject.js addTodo function?
+const Project = (projectName, todoList) => {
+  return { projectName, todoList };
 };
 
 const Todo = (description, checked) => {
@@ -10,17 +11,24 @@ const Todo = (description, checked) => {
 };
 
 let Chores = Todo('Finish todo website', false);
-let Chores1 = Todo('Finish TOP', true);
+let Chores1 = Todo('Read a book', false);
+let Chores2 = Todo('Push to github', false);
 
-let Programming = Project('Programming', Chores);
+let todos = [Chores, Chores1, Chores2];
+//let todos2 = [Chores, Chores1, Chores2];
+//let multipleTodos = [todos, todos2];
+let Programming = Project('Today', todos);
 
 let projects = [Programming];
-let todos = [Chores, Chores1];
 
 function displayProjects() {
   leftBar.children[0].remove();
   const div = document.createElement('div');
   leftBar.appendChild(div);
+
+  let h41 = document.createElement('h4');
+  h41.innerHTML = 'Projects:';
+  div.appendChild(h41);
 
   projects.forEach((project) => {
     const h4 = document.createElement('h4');
@@ -43,28 +51,4 @@ function displayProjects() {
   return div;
 }
 
-function createTodo() {
-  const div = document.createElement('div');
-  const h1 = document.createElement('h1');
-  const description = document.createElement('p');
-  const checkbox = document.createElement('input');
-  const button = document.createElement('button');
-
-  div.id = 'frontPage';
-  h1.innerHTML = 'Welcome';
-  description.innerHTML = Chores.description;
-  checkbox.type = 'checkbox';
-  description.className = 'descriptionStyle';
-  checkbox.className = 'checkboxStyle';
-  button.innerHTML = 'Create new project';
-  button.id = 'newProjectButton';
-  button.addEventListener('click', createProject);
-
-  div.appendChild(h1);
-  div.appendChild(checkbox);
-  div.appendChild(description);
-  div.appendChild(button);
-  rightBar.appendChild(div);
-}
-
-export { createTodo, displayProjects, projects, todos, Todo };
+export { displayProjects, Project, Todo, projects, todos, Programming, Chores };

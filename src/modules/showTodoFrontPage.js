@@ -1,12 +1,10 @@
-import { projects, todos } from './frontPage';
-function displayTodo(description, checked) {
-  rightBar.children[0].remove();
-
+import { projects, todos, Programming } from './frontPage';
+function displayTodoFrontPage() {
   const div = document.createElement('div');
   const h1 = document.createElement('h1');
 
   div.id = 'showTodo';
-  h1.innerHTML = event.target.innerHTML;
+  h1.innerHTML = Programming.projectName;
   div.appendChild(h1);
 
   todos.forEach((todo) => {
@@ -25,4 +23,4 @@ function displayTodo(description, checked) {
   rightBar.appendChild(div);
 }
 
-export { displayTodo };
+export { displayTodoFrontPage };

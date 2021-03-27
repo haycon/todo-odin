@@ -1,4 +1,4 @@
-import { Todo, displayProjects, projects, todos } from './frontPage';
+import { Todo, displayProjects, projects, todos, Project } from './frontPage';
 
 function createProject() {
   rightBar.children[0].remove();
@@ -32,14 +32,6 @@ function createProject() {
 }
 
 function addTodo() {
-  const Project = (projectName, Todo) => {
-    return { projectName, Todo };
-  };
-
-  const Todo = (description, checked) => {
-    return { description, checked };
-  };
-
   //It is a form, and therefore the page get's refreshed
   event.preventDefault();
   let projectName = document.getElementById('inputProjectName').value;
@@ -77,7 +69,6 @@ function addTodo() {
   rightBar.appendChild(div);
   div.appendChild(div2);
   div2.appendChild(h2);
-  div2.appendChild(p);
   div.appendChild(p2);
   div.appendChild(labelDesc);
   div.appendChild(inputDesc);
@@ -89,15 +80,20 @@ function addTodo() {
 }
 
 function addTodos() {
-  let n = 0;
+  const divTodo = document.createElement('div');
   let p = document.createElement('p');
   let checkbox = document.createElement('input');
   let br = document.createElement('br');
+  let erase = document.createElement('button');
 
+  //To add PID NPM?
+  divTodo.id = 'todoID';
   checkbox.classList.add('checkbox');
   checkbox.type = 'checkbox';
   p.innerHTML = inputDesc.value;
   p.classList.add('descriptionStyle');
+  erase.innerHTML = 'X';
+  erase.id = 'eraseBtn';
 
   if (inputCheckbox.checked == true) {
     checkbox.checked = true;
@@ -114,13 +110,13 @@ function addTodos() {
     }
   });
 
-  displayTodos.appendChild(br);
-  displayTodos.appendChild(checkbox);
-  displayTodos.appendChild(p);
+  displayTodos.appendChild(divTodo);
+  divTodo.appendChild(br);
+  divTodo.appendChild(checkbox);
+  divTodo.appendChild(p);
+  divTodo.appendChild(erase);
 
   let newTodo = Todo(inputDesc.value, inputCheckbox.checked);
   todos.push(newTodo);
-  console.log(todos);
-  n += 3;
 }
 export { createProject };

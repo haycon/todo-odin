@@ -1,4 +1,3 @@
 Todo
 
 Refactor factory function into functions so they are not visible?
-Make the project clicked show todos

@@ -1,5 +1,6 @@
 import { createTodo, displayProjects } from './modules/frontPage';
 import { createForm } from './modules/createProject';
+import { displayTodoFrontPage } from './modules/showTodoFrontPage';
 
-createTodo();
 displayProjects();
+displayTodoFrontPage();
