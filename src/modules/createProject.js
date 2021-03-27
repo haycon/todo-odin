@@ -94,6 +94,7 @@ function addTodos() {
   p.classList.add('descriptionStyle');
   erase.innerHTML = 'X';
   erase.id = 'eraseBtn';
+  erase.onclick = deleteTodo;
 
   if (inputCheckbox.checked == true) {
     checkbox.checked = true;
@@ -119,4 +120,9 @@ function addTodos() {
   let newTodo = Todo(inputDesc.value, inputCheckbox.checked);
   todos.push(newTodo);
 }
-export { createProject };
+
+function deleteTodo() {
+  console.log('yes');
+}
+
+export { createProject, addTodos, deleteTodo };

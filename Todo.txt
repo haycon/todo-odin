@@ -1,3 +1,5 @@
 Todo
 
-Refactor factory function into functions so they are not visible?
+Fix front page
+Entire codebase should be refactored, messy code, and redundant code.
+Change let to const
