@@ -34,7 +34,8 @@ function createProject() {
 }
 
 function addTodo() {
-  //It is a form, and therefore the page get's refreshed
+  //Prevents default since there is a form, and therefore the page get's refreshed
+  //Remove form?
   event.preventDefault();
   let projectName = document.getElementById('inputProjectName').value;
   let newProject = Project(projectName, null);
@@ -81,6 +82,8 @@ function addTodo() {
   div.appendChild(button);
 }
 
+let newTodos = [];
+
 function addTodos() {
   const divTodo = document.createElement('div');
   let p = document.createElement('p');
@@ -119,7 +122,7 @@ function addTodos() {
   divTodo.appendChild(erase);
 
   let newTodo = Todo(inputDesc.value, inputCheckbox.checked);
-  todos.push(newTodo);
+  newTodos.push(newTodo);
 }
 
 function deleteTodo(e) {
@@ -141,4 +144,4 @@ function deleteTodo(e) {
   console.log(todos);
 }
 
-export { createProject, addTodos, deleteTodo };
+export { createProject, addTodos, deleteTodo, newTodos };

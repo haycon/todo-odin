@@ -8,7 +8,6 @@ function displayTodoFrontPage() {
   div.id = 'showTodo';
   h1.innerHTML = Programming.projectName;
   div.appendChild(h1);
-  let n = 0;
   todos.forEach((todo) => {
     const divTodo = document.createElement('div');
     const p = document.createElement('p');
@@ -45,8 +44,6 @@ function displayTodoFrontPage() {
     divTodo.appendChild(br);
     divTodo.appendChild(erase);
     div.appendChild(divTodo);
-
-    n += 1;
   });
   rightBar.appendChild(div);
 }

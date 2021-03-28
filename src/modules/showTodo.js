@@ -1,4 +1,5 @@
 import { Project, Todo, todos, Programming } from '../index';
+import { newTodos } from './createProject';
 
 function displayTodo(description, checked) {
   rightBar.children[0].remove();
@@ -10,7 +11,7 @@ function displayTodo(description, checked) {
   h1.innerHTML = event.target.innerHTML;
   div.appendChild(h1);
 
-  todos.forEach((todo) => {
+  newTodos.forEach((todo) => {
     const descriptionP = document.createElement('p');
     const checkbox = document.createElement('input');
     const br = document.createElement('br');
