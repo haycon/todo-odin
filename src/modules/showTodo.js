@@ -1,5 +1,5 @@
 import { Project, Todo, todos, Programming } from '../index';
-import { newTodos } from './createProject';
+import { newTodos, createTodo } from './createProject';
 
 function displayTodo(description, checked) {
   rightBar.children[0].remove();
@@ -15,11 +15,16 @@ function displayTodo(description, checked) {
     const descriptionP = document.createElement('p');
     const checkbox = document.createElement('input');
     const br = document.createElement('br');
+    const button = document.createElement('button');
+
     descriptionP.innerHTML = todo.description;
     checkbox.type = 'checkbox';
     descriptionP.className = 'descriptionStyle';
     checkbox.className = 'checkboxStyle';
+    button.innerHTML = '+';
+    button.addEventListener('click', addTodos);
 
+    div.appendChild(button);
     div.appendChild(checkbox);
     div.appendChild(descriptionP);
     div.appendChild(br);

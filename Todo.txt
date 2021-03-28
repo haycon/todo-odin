@@ -1,6 +1,6 @@
 Todo
 
 Fix function names.
-All todos got a div with id, should be class instead.
+Change some id's to class
 Entire codebase should be refactored, messy code, and redundant code.
 Change let to const.

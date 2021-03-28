@@ -20,7 +20,7 @@ function createProject() {
   inputProjectName.id = 'inputProjectName';
   labelProjectName.innerHTML = 'Project name: ';
   button.innerHTML = 'Create';
-  button.addEventListener('click', addTodo);
+  button.addEventListener('click', createTodo);
 
   rightBar.appendChild(div);
   div.appendChild(h2);
@@ -33,7 +33,7 @@ function createProject() {
   return div;
 }
 
-function addTodo() {
+function createTodo() {
   //Prevents default since there is a form, and therefore the page get's refreshed
   //Remove form?
   event.preventDefault();
@@ -50,9 +50,7 @@ function addTodo() {
   const p = document.createElement('p');
   const p2 = document.createElement('p');
   const labelDesc = document.createElement('label');
-  const labelCheckbox = document.createElement('label');
   const inputDesc = document.createElement('input');
-  const inputCheckbox = document.createElement('input');
   const br = document.createElement('br');
   const br2 = document.createElement('br');
   const button = document.createElement('button');
@@ -63,9 +61,6 @@ function addTodo() {
   p2.innerHTML = 'Add new todos:';
   inputDesc.id = 'inputDesc';
   labelDesc.innerHTML = 'Description: ';
-  labelCheckbox.innerHTML = 'Done (Yes/No): ';
-  inputCheckbox.type = 'checkbox';
-  inputCheckbox.id = 'inputCheckbox';
   button.innerHTML = '+';
   button.addEventListener('click', addTodos);
 
@@ -76,8 +71,6 @@ function addTodo() {
   div.appendChild(labelDesc);
   div.appendChild(inputDesc);
   div.appendChild(br);
-  div.appendChild(labelCheckbox);
-  div.appendChild(inputCheckbox);
   div.appendChild(br2);
   div.appendChild(button);
 }
@@ -88,7 +81,6 @@ function addTodos() {
   const divTodo = document.createElement('div');
   let p = document.createElement('p');
   let checkbox = document.createElement('input');
-  let br = document.createElement('br');
   let erase = document.createElement('button');
 
   divTodo.id = 'todoID';
@@ -100,10 +92,6 @@ function addTodos() {
   erase.innerHTML = 'X';
   erase.id = 'eraseBtn';
   erase.addEventListener('click', deleteTodo);
-  if (inputCheckbox.checked == true) {
-    checkbox.checked = true;
-    p.classList.add('completed');
-  }
 
   checkbox.addEventListener('click', function (e) {
     if (e.srcElement.checked == true) {
@@ -116,12 +104,11 @@ function addTodos() {
   });
 
   displayTodos.appendChild(divTodo);
-  divTodo.appendChild(br);
   divTodo.appendChild(checkbox);
   divTodo.appendChild(p);
   divTodo.appendChild(erase);
 
-  let newTodo = Todo(inputDesc.value, inputCheckbox.checked);
+  let newTodo = Todo(inputDesc.value, false);
   newTodos.push(newTodo);
 }
 
@@ -144,4 +131,4 @@ function deleteTodo(e) {
   console.log(todos);
 }
 
-export { createProject, addTodos, deleteTodo, newTodos };
+export { createProject, addTodos, deleteTodo, newTodos, createTodo };
