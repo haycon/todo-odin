@@ -1,5 +1,6 @@
 import { Project, Todo, todos, Programming, projects } from '../index';
 import { displayProjects } from './frontPage';
+import { nanoid } from 'nanoid';
 
 function createProject() {
   rightBar.children[0].remove();
@@ -87,16 +88,15 @@ function addTodos() {
   let br = document.createElement('br');
   let erase = document.createElement('button');
 
-  //To add PID NPM?
   divTodo.id = 'todoID';
+  divTodo.setAttribute('data-id', inputDesc.value);
   checkbox.classList.add('checkbox');
   checkbox.type = 'checkbox';
   p.innerHTML = inputDesc.value;
   p.classList.add('descriptionStyle');
   erase.innerHTML = 'X';
   erase.id = 'eraseBtn';
-  erase.onclick = deleteTodo;
-
+  erase.addEventListener('click', deleteTodo);
   if (inputCheckbox.checked == true) {
     checkbox.checked = true;
     p.classList.add('completed');
@@ -122,8 +122,23 @@ function addTodos() {
   todos.push(newTodo);
 }
 
-function deleteTodo() {
-  console.log('yes');
+function deleteTodo(e) {
+  //Try and find another way to select clicked event.
+  e.path[1].parentNode.removeChild(e.path[1]);
+
+  //Find the index of the clicked todo
+  let pos = todos
+    .map(function (e) {
+      return e.description;
+    })
+    .indexOf(e.path[1].getAttribute('data-id'));
+  console.log(pos);
+  //Removes the clicked todo from array
+  if (pos > -1) {
+    todos.splice(pos, 1);
+  }
+
+  console.log(todos);
 }
 
 export { createProject, addTodos, deleteTodo };

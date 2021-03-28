@@ -8,7 +8,7 @@ function displayTodoFrontPage() {
   div.id = 'showTodo';
   h1.innerHTML = Programming.projectName;
   div.appendChild(h1);
-
+  let n = 0;
   todos.forEach((todo) => {
     const divTodo = document.createElement('div');
     const p = document.createElement('p');
@@ -16,8 +16,8 @@ function displayTodoFrontPage() {
     const br = document.createElement('br');
     const erase = document.createElement('button');
 
-    //To add PID NPM?
     divTodo.id = 'todoID';
+    divTodo.setAttribute('data-id', todo.description);
     p.innerHTML = todo.description;
     inputCheckbox.type = 'checkbox';
     p.className = 'descriptionStyle';
@@ -45,6 +45,8 @@ function displayTodoFrontPage() {
     divTodo.appendChild(br);
     divTodo.appendChild(erase);
     div.appendChild(divTodo);
+
+    n += 1;
   });
   rightBar.appendChild(div);
 }

@@ -1,5 +1,4 @@
 Todo
 
-Fix front page
 Entire codebase should be refactored, messy code, and redundant code.
 Change let to const
