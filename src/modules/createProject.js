@@ -1,6 +1,5 @@
 import { Project, Todo, todos, Programming, projects } from '../index';
 import { displayProjects } from './frontPage';
-import { nanoid } from 'nanoid';
 
 function createProject() {
   rightBar.children[0].remove();
@@ -38,8 +37,9 @@ function createTodo() {
   //Remove form?
   event.preventDefault();
   let projectName = document.getElementById('inputProjectName').value;
-  let newProject = Project(projectName, null);
+  let newProject = Project(projectName, []);
   projects.push(newProject);
+  console.log(projects);
 
   displayProjects();
   rightBar.children[0].remove();
@@ -75,8 +75,6 @@ function createTodo() {
   div.appendChild(button);
 }
 
-let newTodos = [];
-
 function addTodos() {
   const divTodo = document.createElement('div');
   let p = document.createElement('p');
@@ -109,7 +107,8 @@ function addTodos() {
   divTodo.appendChild(erase);
 
   let newTodo = Todo(inputDesc.value, false);
-  newTodos.push(newTodo);
+  projects[1].todoList.push(newTodo);
+  console.log(projects);
 }
 
 function deleteTodo(e) {
@@ -128,7 +127,8 @@ function deleteTodo(e) {
     todos.splice(pos, 1);
   }
 
-  console.log(todos);
+  array.push('1');
+  console.log(array);
 }
-
-export { createProject, addTodos, deleteTodo, newTodos, createTodo };
+let array = [];
+export { createProject, addTodos, deleteTodo, createTodo, projects };

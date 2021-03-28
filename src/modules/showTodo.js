@@ -1,7 +1,7 @@
-import { Project, Todo, todos, Programming } from '../index';
-import { newTodos, createTodo } from './createProject';
+import { Project, Todo, todos, Programming, projects } from '../index';
+import { newTodos, addTodos } from './createProject';
 
-function displayTodo(description, checked) {
+function displayTodo() {
   rightBar.children[0].remove();
 
   const div = document.createElement('div');
@@ -11,7 +11,11 @@ function displayTodo(description, checked) {
   h1.innerHTML = event.target.innerHTML;
   div.appendChild(h1);
 
-  newTodos.forEach((todo) => {
+  console.log(projects);
+  console.log(projects[0].todoList);
+
+  projects[0].todoList.forEach((todo) => {
+    console.log(todo);
     const descriptionP = document.createElement('p');
     const checkbox = document.createElement('input');
     const br = document.createElement('br');
