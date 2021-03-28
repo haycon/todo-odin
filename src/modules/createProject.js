@@ -3,7 +3,7 @@ import { displayProjects } from './frontPage';
 
 function createProject() {
   rightBar.children[0].remove();
-
+  console.log(projects);
   const div = document.createElement('div');
   const h2 = document.createElement('h2');
   const labelProjectName = document.createElement('label');
@@ -107,8 +107,9 @@ function addTodos() {
   divTodo.appendChild(erase);
 
   let newTodo = Todo(inputDesc.value, false);
-  projects[1].todoList.push(newTodo);
   console.log(projects);
+  projects[projects.length - 1].todoList.push(newTodo);
+  //console.log(projects[1].todoList);
 }
 
 function deleteTodo(e) {
@@ -131,4 +132,4 @@ function deleteTodo(e) {
   console.log(array);
 }
 let array = [];
-export { createProject, addTodos, deleteTodo, createTodo, projects };
+export { createProject, addTodos, deleteTodo, createTodo };

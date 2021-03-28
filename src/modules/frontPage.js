@@ -1,7 +1,7 @@
 import { Project, Todo, todos, Programming, projects } from '../index';
 import { createProject } from './createProject';
 import { displayTodo } from './showTodo';
-
+let n = 0;
 function displayProjects() {
   leftBar.children[0].remove();
   const div = document.createElement('div');
@@ -13,13 +13,14 @@ function displayProjects() {
 
   projects.forEach((project) => {
     const h4 = document.createElement('h4');
-
+    h4.id = n;
     h4.innerHTML = project.projectName;
     h4.onclick = function () {
       displayTodo(todos.description, todos.checked);
     };
 
     div.appendChild(h4);
+    n += 1;
   });
 
   const h3 = document.createElement('h3');

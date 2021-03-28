@@ -10,12 +10,8 @@ function displayTodo() {
   div.id = 'showTodo';
   h1.innerHTML = event.target.innerHTML;
   div.appendChild(h1);
-
   console.log(projects);
-  console.log(projects[0].todoList);
-
-  projects[0].todoList.forEach((todo) => {
-    console.log(todo);
+  projects[event.path[0].id].todoList.forEach((todo) => {
     const descriptionP = document.createElement('p');
     const checkbox = document.createElement('input');
     const br = document.createElement('br');

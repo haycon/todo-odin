@@ -1,6 +1,6 @@
 import { deleteTodo, addTodos } from './createProject';
-import { Project, Todo, todos, Programming } from '../index';
-import { projects } from './createProject';
+import { Project, Todo, todos, Programming, projects } from '../index';
+import {} from './createProject';
 
 function displayTodoFrontPage() {
   const div = document.createElement('div');
