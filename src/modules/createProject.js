@@ -10,8 +10,6 @@ function createProject() {
   const form = document.createElement('form');
   const inputProjectName = document.createElement('input');
   const br = document.createElement('br');
-  const br1 = document.createElement('br');
-  const br2 = document.createElement('br');
   const button = document.createElement('button');
 
   div.id = 'createTodo';
@@ -107,9 +105,8 @@ function addTodos() {
   divTodo.appendChild(erase);
 
   let newTodo = Todo(inputDesc.value, false);
-  console.log(projects);
   projects[projects.length - 1].todoList.push(newTodo);
-  //console.log(projects[1].todoList);
+  console.log(projects);
 }
 
 function deleteTodo(e) {
@@ -122,14 +119,10 @@ function deleteTodo(e) {
       return e.description;
     })
     .indexOf(e.path[1].getAttribute('data-id'));
-  console.log(pos);
   //Removes the clicked todo from array
   if (pos > -1) {
     todos.splice(pos, 1);
   }
-
-  array.push('1');
-  console.log(array);
 }
 let array = [];
 export { createProject, addTodos, deleteTodo, createTodo };
