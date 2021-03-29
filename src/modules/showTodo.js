@@ -17,6 +17,7 @@ function displayTodo() {
   h1.innerHTML = event.target.innerHTML;
   inputDesc.id = 'inputDesc';
   labelDesc.innerHTML = 'Description: ';
+  button.id = 'addBtn';
   button.innerHTML = '+';
   button.addEventListener('click', addTodos);
 

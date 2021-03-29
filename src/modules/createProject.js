@@ -16,6 +16,7 @@ function createProject() {
   h2.innerHTML = 'Create a new project';
   inputProjectName.id = 'inputProjectName';
   labelProjectName.innerHTML = 'Project name: ';
+  button.id = 'create';
   button.innerHTML = 'Create';
   button.addEventListener('click', createTodo);
 
@@ -59,6 +60,7 @@ function createTodo() {
   p2.innerHTML = 'Add new todos:';
   inputDesc.id = 'inputDesc';
   labelDesc.innerHTML = 'Description: ';
+  button.id = 'addBtn';
   button.innerHTML = '+';
   button.addEventListener('click', addTodos);
 

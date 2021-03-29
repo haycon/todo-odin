@@ -57,6 +57,7 @@ function displayTodoFrontPage() {
   const inputDesc = document.createElement('input');
   const button = document.createElement('button');
 
+  button.id = 'addBtn';
   button.innerHTML = '+';
   button.addEventListener('click', addTodos);
   inputDesc.id = 'inputDesc';

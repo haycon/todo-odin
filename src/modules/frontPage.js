@@ -7,6 +7,7 @@ function displayProjects() {
   const div = document.createElement('div');
   leftBar.appendChild(div);
 
+  div.id = 'projectContainer';
   let h41 = document.createElement('h4');
   h41.innerHTML = 'Projects:';
   div.appendChild(h41);
