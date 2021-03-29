@@ -1,4 +1,4 @@
-import { Project, Todo, todos, Programming, projects } from '../index';
+import { todos, projects } from '../index';
 import { createProject } from './createProject';
 import { displayTodo } from './showTodo';
 

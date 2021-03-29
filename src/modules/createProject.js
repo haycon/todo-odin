@@ -1,4 +1,4 @@
-import { Project, Todo, todos, Programming, projects } from '../index';
+import { Project, Todo, todos, projects } from '../index';
 import { displayProjects } from './frontPage';
 
 function createProject() {

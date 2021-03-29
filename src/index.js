@@ -1,5 +1,4 @@
-import { createTodo, displayProjects } from './modules/frontPage';
-import { createForm } from './modules/createProject';
+import { displayProjects } from './modules/frontPage';
 import { displayTodoFrontPage } from './modules/showTodoFrontPage';
 
 const Project = (projectName, todoList) => {

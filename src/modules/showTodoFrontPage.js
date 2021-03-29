@@ -1,5 +1,5 @@
 import { deleteTodo, addTodos } from './createProject';
-import { Project, Todo, todos, Programming, projects } from '../index';
+import { todos, Programming, projects } from '../index';
 import { editTodo } from './editTodo';
 
 function displayTodoFrontPage() {
@@ -20,6 +20,7 @@ function displayTodoFrontPage() {
     const inputCheckbox = document.createElement('input');
     const br = document.createElement('br');
     const erase = document.createElement('button');
+    const edit = document.createElement('button');
 
     divTodo.id = todo.description;
     divTodo.className = 'todoID';
@@ -30,8 +31,11 @@ function displayTodoFrontPage() {
     p.className = 'descriptionStyle';
     inputCheckbox.id = 'inputCheckbox';
     erase.innerHTML = 'X';
+    edit.innerHTML = 'Edit';
     erase.id = 'eraseBtn';
+    edit.id = 'editBtn';
     erase.onclick = deleteTodo;
+    edit.onclick = editTodo;
 
     if (inputCheckbox.checked == true) {
       checkbox.checked = true;
@@ -52,6 +56,7 @@ function displayTodoFrontPage() {
     divTodo.appendChild(p);
     divTodo.appendChild(br);
     divTodo.appendChild(erase);
+    divTodo.appendChild(edit);
     div.appendChild(divTodo);
     div.appendChild(div2);
   });

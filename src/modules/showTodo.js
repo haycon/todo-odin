@@ -1,5 +1,5 @@
-import { Project, Todo, todos, Programming, projects } from '../index';
-import { newTodos, addTodos, deleteTodo } from './createProject';
+import { projects } from '../index';
+import { addTodos, deleteTodo } from './createProject';
 
 function displayTodo() {
   console.log('yes');
