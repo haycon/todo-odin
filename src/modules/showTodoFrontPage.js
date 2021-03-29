@@ -25,7 +25,6 @@ function displayTodoFrontPage() {
     divTodo.id = todo.description;
     divTodo.className = 'todoID';
     divTodo.setAttribute('data-id', todo.description);
-    divTodo.addEventListener('click', editTodo);
     p.innerHTML = todo.description;
     inputCheckbox.type = 'checkbox';
     p.className = 'descriptionStyle';

@@ -2,7 +2,6 @@ import { projects } from '../index';
 import { addTodos, deleteTodo } from './createProject';
 
 function displayTodo() {
-  console.log('yes');
   rightBar.children[0].remove();
 
   const div = document.createElement('div');

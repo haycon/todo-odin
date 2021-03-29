@@ -2,8 +2,8 @@ A todo web app that allows users to create projects, add todo items under that p
 
 #Todo on the todo:
 
+- Improve the design of the buttons (placement).
 - Fix function names.
 - Change some id's to class
-- Change let to const.
-- Entire codebase should be refactored.
-- Currently there is 3 different ways to show todos - should be 1.
+- Improve modality.
+- Bugfix, editbutton must be clicked twice after editing once.

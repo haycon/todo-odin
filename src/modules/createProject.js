@@ -74,7 +74,7 @@ function createTodo() {
   div.appendChild(br2);
   div.appendChild(button);
 }
-
+let n = 0;
 function addTodos() {
   const divTodo = document.createElement('div');
   let p = document.createElement('p');
@@ -84,6 +84,8 @@ function addTodos() {
   divTodo.id = inputDesc.value;
   divTodo.className = 'todoID';
   divTodo.setAttribute('data-id', inputDesc.value);
+  divTodo.setAttribute('data-id', n);
+  n += 1;
   checkbox.classList.add('checkbox');
   checkbox.type = 'checkbox';
   p.innerHTML = inputDesc.value;
@@ -126,6 +128,6 @@ function deleteTodo(e) {
   if (pos > -1) {
     todos.splice(pos, 1);
   }
+  console.log(projects);
 }
-let array = [];
 export { createProject, addTodos, deleteTodo, createTodo };

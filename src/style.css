@@ -82,6 +82,20 @@ h3 {
   margin-left: 35px;
 }
 
+#editField {
+  display: block;
+}
+
+#submitBtn {
+  background-color: rgb(63, 50, 240);
+  width: 40px;
+  padding: 10px;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  margin-left: 35px;
+}
+
 #create {
   background-color: rgb(84, 251, 62);
   width: 100px;
