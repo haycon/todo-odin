@@ -31,7 +31,8 @@ function displayTodo() {
     let erase = document.createElement('button');
     const br = document.createElement('br');
 
-    divTodo.id = 'todoID';
+    divTodo.id = todo.description;
+    divTodo.className = 'todoID';
     divTodo.setAttribute('data-id', inputDesc.value);
     p.innerHTML = todo.description;
     erase.innerHTML = 'X';

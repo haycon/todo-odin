@@ -81,7 +81,8 @@ function addTodos() {
   let checkbox = document.createElement('input');
   let erase = document.createElement('button');
 
-  divTodo.id = 'todoID';
+  divTodo.id = inputDesc.value;
+  divTodo.className = 'todoID';
   divTodo.setAttribute('data-id', inputDesc.value);
   checkbox.classList.add('checkbox');
   checkbox.type = 'checkbox';

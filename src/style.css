@@ -10,6 +10,13 @@ h4 {
   color: white;
 }
 
+h4:hover,
+h3:hover {
+  background-color: rgb(129, 124, 124);
+  padding: 2px;
+  border-radius: 10px;
+}
+
 h3 {
   font-size: 15px;
   color: white;
@@ -106,10 +113,12 @@ h3 {
   text-decoration: none;
 }
 
-#eraseBtn {
+.todoID:hover {
+  background-color: rgb(192, 180, 180);
+  border-radius: 10px;
 }
 
-#todoID {
+.todoID {
   display: flex;
   width: 400px;
   align-items: center;

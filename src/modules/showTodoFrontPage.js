@@ -22,6 +22,7 @@ function displayTodoFrontPage() {
     const erase = document.createElement('button');
 
     divTodo.id = todo.description;
+    divTodo.className = 'todoID';
     divTodo.setAttribute('data-id', todo.description);
     divTodo.addEventListener('click', editTodo);
     p.innerHTML = todo.description;
