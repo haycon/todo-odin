@@ -20,9 +20,9 @@ function displayTodo() {
   button.innerHTML = '+';
   button.addEventListener('click', addTodos);
 
-  div.appendChild(div2);
   div.appendChild(h1);
 
+  console.log(projects[event.path[0].id]);
   projects[event.path[0].id].todoList.forEach((todo) => {
     const divTodo = document.createElement('div');
     const p = document.createElement('p');
@@ -50,11 +50,12 @@ function displayTodo() {
         p.classList.add('unfinished');
       }
     });
-    div.appendChild(divTodo);
     divTodo.appendChild(checkbox);
     divTodo.appendChild(p);
     divTodo.appendChild(erase);
     divTodo.appendChild(br);
+    div.appendChild(divTodo);
+    div.appendChild(div2);
   });
 
   div.appendChild(labelDesc);

@@ -2,5 +2,6 @@ Todo
 
 Fix function names.
 Change some id's to class
-Entire codebase should be refactored, messy code, and redundant code.
 Change let to const.
+Entire codebase should be refactored.
+Currently there is 3 different ways to show todos - should be 1.

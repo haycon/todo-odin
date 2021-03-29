@@ -6,8 +6,9 @@ function displayTodoFrontPage() {
   const div = document.createElement('div');
   const h1 = document.createElement('h1');
   const div2 = document.createElement('div');
+  const labelDesc = document.createElement('label');
 
-  div.id = 'showTodo';
+  div.id = 'newTodo';
   div2.id = 'displayTodos';
   h1.innerHTML = Programming.projectName;
 
@@ -59,8 +60,10 @@ function displayTodoFrontPage() {
   button.innerHTML = '+';
   button.addEventListener('click', addTodos);
   inputDesc.id = 'inputDesc';
+  labelDesc.innerHTML = 'Description: ';
 
   rightBar.appendChild(div);
+  div.appendChild(labelDesc);
   div.appendChild(inputDesc);
 
   div.appendChild(button);
