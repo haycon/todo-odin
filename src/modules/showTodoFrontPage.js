@@ -1,6 +1,6 @@
 import { deleteTodo, addTodos } from './createProject';
 import { Project, Todo, todos, Programming, projects } from '../index';
-import {} from './createProject';
+import { editTodo } from './editTodo';
 
 function displayTodoFrontPage() {
   const div = document.createElement('div');
@@ -21,8 +21,9 @@ function displayTodoFrontPage() {
     const br = document.createElement('br');
     const erase = document.createElement('button');
 
-    divTodo.id = 'todoID';
+    divTodo.id = todo.description;
     divTodo.setAttribute('data-id', todo.description);
+    divTodo.addEventListener('click', editTodo);
     p.innerHTML = todo.description;
     inputCheckbox.type = 'checkbox';
     p.className = 'descriptionStyle';
