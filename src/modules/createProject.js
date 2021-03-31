@@ -128,6 +128,6 @@ function deleteTodo(e) {
   if (pos > -1) {
     todos.splice(pos, 1);
   }
-  console.log(projects[0].todoList);
+  console.log(projects);
 }
 export { createProject, addTodos, deleteTodo, createTodo };

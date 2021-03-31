@@ -1,8 +1,12 @@
 import { projects } from '../index';
 
-function editTodo(todo) {
+function editTodo() {
   let duplicate = document.getElementById('editField');
   let editDivCheck = document.getElementById('editField');
+
+  console.log(projects[event.path[0].id]);
+  projects[0].todoList[0].description = 'Hello';
+  console.log(projects[0].todoList[0].description);
 
   if (duplicate) {
     if (editDivCheck) {
@@ -24,9 +28,10 @@ function editTodo(todo) {
       submitBtn.addEventListener('click', function () {
         //Sets value of innerHTML of clicked p to the edited input
         event.path[2].children[1].innerHTML = editInput.value;
-        const description = editInput.value;
-        editObject(todo, description);
+
+        console.log(projects[event.path[0].id]);
         projects[0].todoList[0].description = editInput.value;
+        console.log(projects[0].todoList[0].description);
 
         editField.remove();
         submitBtn.remove();
@@ -36,13 +41,12 @@ function editTodo(todo) {
       editDiv.appendChild(newDiv);
       newDiv.appendChild(editField);
       newDiv.appendChild(submitBtn);
+
+      /* if (editInput) {
+        
+      } */
     }
   }
 }
-
-const editObject = (todo, description) => {
-  todo.description = description;
-  console.log(todo);
-};
 
 export { editTodo };
