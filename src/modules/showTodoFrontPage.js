@@ -1,6 +1,6 @@
 import { deleteTodo, addTodos } from './createProject';
 import { todos, Programming, projects } from '../index';
-import { editTodo } from './editTodo';
+import { editTodo, editDescription } from './editTodo';
 
 function displayTodoFrontPage() {
   const div = document.createElement('div');
@@ -34,7 +34,9 @@ function displayTodoFrontPage() {
     erase.id = 'eraseBtn';
     edit.id = 'editBtn';
     erase.onclick = deleteTodo;
-    edit.onclick = editTodo;
+    edit.addEventListener('click', function () {
+      editTodo();
+    });
 
     if (inputCheckbox.checked == true) {
       checkbox.checked = true;

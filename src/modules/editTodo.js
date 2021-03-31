@@ -1,12 +1,14 @@
 import { projects } from '../index';
 
-function editTodo() {
+function editDescription(todo, description) {
+  console.log(todo);
+  todo.description = 'yes';
+  console.log(todo);
+}
+
+function editTodo(todo) {
   let duplicate = document.getElementById('editField');
   let editDivCheck = document.getElementById('editField');
-
-  console.log(projects[event.path[0].id]);
-  projects[0].todoList[0].description = 'Hello';
-  console.log(projects[0].todoList[0].description);
 
   if (duplicate) {
     if (editDivCheck) {
@@ -18,35 +20,25 @@ function editTodo() {
       let br = document.createElement('br');
       let editField = document.createElement('input');
       let submitBtn = document.createElement('button');
-      let editDiv = document.getElementById(event.path[1].id);
+      let editDiv = document.getElementById(todo.description);
 
       newDiv.id = 'editField';
       editField.id = 'editInput';
       submitBtn.id = 'submitBtn';
       submitBtn.innerHTML = '+';
 
+      const editValue = editField.value;
+
       submitBtn.addEventListener('click', function () {
-        //Sets value of innerHTML of clicked p to the edited input
-        event.path[2].children[1].innerHTML = editInput.value;
-
-        console.log(projects[event.path[0].id]);
-        projects[0].todoList[0].description = editInput.value;
-        console.log(projects[0].todoList[0].description);
-
-        editField.remove();
-        submitBtn.remove();
+        editDescription(todo, description);
       });
 
       editDiv.appendChild(br);
       editDiv.appendChild(newDiv);
       newDiv.appendChild(editField);
       newDiv.appendChild(submitBtn);
-
-      /* if (editInput) {
-        
-      } */
     }
   }
 }
 
-export { editTodo };
+export { editTodo, editDescription };
