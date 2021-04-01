@@ -1,5 +1,6 @@
 import { Project, Todo, todos, projects } from '../index';
 import { displayProjects } from './frontPage';
+import { editTodo } from './editTodo';
 
 function createProject() {
   rightBar.children[0].remove();
@@ -77,9 +78,10 @@ function createTodo() {
 let n = 0;
 function addTodos() {
   const divTodo = document.createElement('div');
-  let p = document.createElement('p');
-  let checkbox = document.createElement('input');
-  let erase = document.createElement('button');
+  const p = document.createElement('p');
+  const checkbox = document.createElement('input');
+  const erase = document.createElement('button');
+  const edit = document.createElement('button');
 
   divTodo.id = inputDesc.value;
   divTodo.className = 'todoID';
@@ -93,6 +95,13 @@ function addTodos() {
   erase.innerHTML = 'X';
   erase.id = 'eraseBtn';
   erase.addEventListener('click', deleteTodo);
+  edit.innerHTML = 'Edit';
+  edit.id = 'editBtn';
+
+  let newTodo = Todo(inputDesc.value, false);
+  edit.addEventListener('click', function () {
+    editTodo(newTodo);
+  });
 
   checkbox.addEventListener('click', function (e) {
     if (e.srcElement.checked == true) {
@@ -108,8 +117,10 @@ function addTodos() {
   divTodo.appendChild(checkbox);
   divTodo.appendChild(p);
   divTodo.appendChild(erase);
+  divTodo.appendChild(edit);
 
-  let newTodo = Todo(inputDesc.value, false);
+  console.log(newTodo);
+
   projects[projects.length - 1].todoList.push(newTodo);
   console.log(projects);
 }

@@ -1,5 +1,6 @@
 import { projects } from '../index';
 import { addTodos, deleteTodo } from './createProject';
+import { editTodo } from './editTodo';
 
 function displayTodo() {
   rightBar.children[0].remove();
@@ -29,6 +30,7 @@ function displayTodo() {
     const checkbox = document.createElement('input');
     let erase = document.createElement('button');
     const br = document.createElement('br');
+    const edit = document.createElement('button');
 
     divTodo.id = todo.description;
     divTodo.className = 'todoID';
@@ -37,6 +39,11 @@ function displayTodo() {
     erase.innerHTML = 'X';
     erase.id = 'eraseBtn';
     erase.addEventListener('click', deleteTodo);
+    edit.innerHTML = 'Edit';
+    edit.id = 'editBtn';
+    edit.addEventListener('click', function () {
+      editTodo(todo);
+    });
 
     checkbox.type = 'checkbox';
     p.className = 'descriptionStyle';
@@ -54,6 +61,7 @@ function displayTodo() {
     divTodo.appendChild(checkbox);
     divTodo.appendChild(p);
     divTodo.appendChild(erase);
+    divTodo.appendChild(edit);
     divTodo.appendChild(br);
     div.appendChild(divTodo);
     div.appendChild(div2);
