@@ -35,7 +35,7 @@ function displayTodoFrontPage() {
     edit.id = 'editBtn';
     erase.onclick = deleteTodo;
     edit.addEventListener('click', function () {
-      editTodo();
+      editTodo(todo);
     });
 
     if (inputCheckbox.checked == true) {

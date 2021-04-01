@@ -2,7 +2,6 @@ import { projects } from '../index';
 
 function editDescription(todo, description) {
   console.log(todo);
-  todo.description = 'yes';
   console.log(todo);
 }
 
@@ -27,10 +26,11 @@ function editTodo(todo) {
       submitBtn.id = 'submitBtn';
       submitBtn.innerHTML = '+';
 
-      const editValue = editField.value;
-
       submitBtn.addEventListener('click', function () {
-        editDescription(todo, description);
+        event.path[2].children[1].innerHTML = editInput.value;
+        todo.description = editInput.value;
+        console.log(todo);
+        console.log(projects[0]);
       });
 
       editDiv.appendChild(br);
