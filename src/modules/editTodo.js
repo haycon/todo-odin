@@ -29,14 +29,20 @@ function editTodo(todo) {
       submitBtn.addEventListener('click', function () {
         event.path[2].children[1].innerHTML = editInput.value;
         todo.description = editInput.value;
+        editDiv.id = editInput.value;
+        editDiv.setAttribute('data-id', editInput.value);
+
+        console.log(editDiv);
         console.log(todo);
         console.log(projects[0]);
       });
 
-      editDiv.appendChild(br);
-      editDiv.appendChild(newDiv);
-      newDiv.appendChild(editField);
-      newDiv.appendChild(submitBtn);
+      if (editDiv) {
+        editDiv.appendChild(br);
+        editDiv.appendChild(newDiv);
+        newDiv.appendChild(editField);
+        newDiv.appendChild(submitBtn);
+      }
     }
   }
 }
