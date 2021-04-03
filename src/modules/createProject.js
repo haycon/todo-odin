@@ -4,7 +4,6 @@ import { editTodo } from './editTodo';
 
 function createProject() {
   rightBar.children[0].remove();
-  console.log(projects);
   const div = document.createElement('div');
   const h2 = document.createElement('h2');
   const labelProjectName = document.createElement('label');
@@ -28,7 +27,6 @@ function createProject() {
   form.appendChild(inputProjectName);
   form.appendChild(br);
   form.appendChild(button);
-
   return div;
 }
 
@@ -39,7 +37,6 @@ function createTodo() {
   let projectName = document.getElementById('inputProjectName').value;
   let newProject = Project(projectName, []);
   projects.push(newProject);
-  console.log(projects);
 
   displayProjects();
   rightBar.children[0].remove();
@@ -63,7 +60,9 @@ function createTodo() {
   labelDesc.innerHTML = 'Description: ';
   button.id = 'addBtn';
   button.innerHTML = '+';
-  button.addEventListener('click', addTodos);
+  button.addEventListener('click', function () {
+    addTodos(projectName);
+  });
 
   rightBar.appendChild(div);
   div.appendChild(div2);
@@ -76,7 +75,7 @@ function createTodo() {
   div.appendChild(button);
 }
 let n = 0;
-function addTodos() {
+function addTodos(projectName) {
   const divTodo = document.createElement('div');
   const p = document.createElement('p');
   const checkbox = document.createElement('input');
@@ -94,7 +93,9 @@ function addTodos() {
   p.classList.add('descriptionStyle');
   erase.innerHTML = 'X';
   erase.id = 'eraseBtn';
-  erase.addEventListener('click', deleteTodo);
+  erase.addEventListener('click', function () {
+    deleteTodo(event, projectName);
+  });
   edit.innerHTML = 'Edit';
   edit.id = 'editBtn';
 
@@ -119,26 +120,26 @@ function addTodos() {
   divTodo.appendChild(erase);
   divTodo.appendChild(edit);
 
-  console.log(newTodo);
-
   projects[projects.length - 1].todoList.push(newTodo);
-  console.log(projects);
 }
 
-function deleteTodo(e) {
+function deleteTodo(event, projectName) {
   //Try and find another way to select clicked event.
-  e.path[1].parentNode.removeChild(e.path[1]);
+  event.path[1].parentNode.removeChild(event.path[1]);
+
+  console.log(projectName);
 
   //Find the index of the clicked todo
   let pos = todos
-    .map(function (e) {
-      return e.description;
+    .map(function (event) {
+      return event.description;
     })
-    .indexOf(e.path[1].getAttribute('data-id'));
+    .indexOf(event.path[1].getAttribute('data-id'));
   //Removes the clicked todo from array
   if (pos > -1) {
-    todos.splice(pos, 1);
+    console.log(pos);
+    //todos.splice(pos, 1);
+    projects[projects.length - 1].todoList.splice(pos, 1);
   }
-  console.log(projects);
 }
 export { createProject, addTodos, deleteTodo, createTodo };

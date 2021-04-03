@@ -4,6 +4,7 @@ import { editTodo } from './editTodo';
 
 function displayTodo() {
   rightBar.children[0].remove();
+  console.log(projects[0]);
 
   const div = document.createElement('div');
   const div2 = document.createElement('div');
@@ -23,7 +24,7 @@ function displayTodo() {
 
   div.appendChild(h1);
 
-  console.log(projects[event.path[0].id]);
+  let projectName = projects[event.path[0].id];
   projects[event.path[0].id].todoList.forEach((todo) => {
     const divTodo = document.createElement('div');
     const p = document.createElement('p');
@@ -34,11 +35,13 @@ function displayTodo() {
 
     divTodo.id = todo.description;
     divTodo.className = 'todoID';
-    divTodo.setAttribute('data-id', inputDesc.value);
+    divTodo.setAttribute('data-id', todo.description);
     p.innerHTML = todo.description;
     erase.innerHTML = 'X';
     erase.id = 'eraseBtn';
-    erase.addEventListener('click', deleteTodo);
+    erase.addEventListener('click', function () {
+      deleteTodo(event, projectName);
+    });
     edit.innerHTML = 'Edit';
     edit.id = 'editBtn';
     edit.addEventListener('click', function () {
